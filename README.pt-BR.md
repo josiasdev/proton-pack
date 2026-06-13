@@ -1,6 +1,6 @@
 # proton-pack 📦
 
-> Empacote qualquer jogo instalado localmente como um AppImage portátil — com GE-Proton embutido ou vinculado ao sistema.
+> Empacote qualquer jogo instalado localmente como um AppImage portátil - com GE-Proton embutido ou vinculado ao sistema.
 
 [![Licença: MIT](https://img.shields.io/badge/Licen%C3%A7a-MIT-yellow.svg)](LICENSE)
 [![Plataforma: Linux](https://img.shields.io/badge/plataforma-Linux-blue.svg)](https://kernel.org)
@@ -50,11 +50,16 @@ patchelf
 libfuse2        # para montagem do AppImage
 
 # Baixar o appimagetool
-wget -O ~/bin/appimagetool \
-  "https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage"
+# 1. Cria o diretório ~/bin (o -p garante que não dará erro se ele já existir)
+mkdir -p ~/bin
+
+# 2. Baixa o appimagetool
+wget -O ~/bin/appimagetool "https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage"
+
+# 3. Concede a permissão de execução ao arquivo
 chmod +x ~/bin/appimagetool
 
-# GE-Proton (para jogos Windows) — instale via protonup-qt ou manualmente:
+# GE-Proton (para jogos Windows) - instale via protonup-qt ou manualmente:
 # https://github.com/GloriousEggroll/proton-ge-custom/releases
 ```
 
@@ -64,7 +69,7 @@ chmod +x ~/bin/appimagetool
 
 ```bash
 # Clone o repositório
-git clone https://github.com/SEU_USUARIO/proton-pack.git
+git clone https://github.com/josiasdev/proton-pack.git
 cd proton-pack
 
 # Torne o script executável
@@ -84,7 +89,7 @@ sudo ln -s "$(pwd)/proton-pack.sh" /usr/local/bin/proton-pack
 # Liste seus App IDs instalados
 ls ~/.steam/steam/steamapps/appmanifest_*.acf | grep -oP '\d+(?=\.acf)'
 
-# Empacotar um jogo (modo leve — usa GE-Proton do sistema)
+# Empacotar um jogo (modo leve - usa GE-Proton do sistema)
 ./proton-pack.sh --steam 1245620
 
 # Empacotar com GE-Proton embutido no AppImage (totalmente portátil)

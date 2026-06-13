@@ -49,9 +49,13 @@ file
 patchelf
 libfuse2        # for AppImage mounting
 
-# Download appimagetool
-wget -O ~/bin/appimagetool \
-  "https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage"
+# 1. Create the directory ~/bin (or -p guarantees that it will not fail if it is chosen to exist)
+mkdir -p ~/bin
+
+# 2. Download the appimagetool
+wget -O ~/bin/appimagetool "https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage"
+
+# 3. Grants execution permission to the file.
 chmod +x ~/bin/appimagetool
 
 # GE-Proton (for Windows games) — install via protonup-qt or manually:
@@ -64,7 +68,7 @@ chmod +x ~/bin/appimagetool
 
 ```bash
 # Clone the repository
-git clone https://github.com/YOUR_USERNAME/proton-pack.git
+git clone https://github.com/josiasdev/proton-pack.git
 cd proton-pack
 
 # Make the script executable
