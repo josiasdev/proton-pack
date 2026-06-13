@@ -1,0 +1,22 @@
+Wine — License Notice
+=====================
+
+GE-Proton (bundled via --bundle-proton) includes Wine, which is licensed
+under the GNU Lesser General Public License version 2.1 (LGPL 2.1).
+
+Wine source code:
+  https://gitlab.winehq.org/wine/wine
+
+Full LGPL 2.1 license text:
+  https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
+
+proton-pack does not modify Wine binaries. The version bundled is an
+unmodified copy of a publicly released GE-Proton build, which itself
+bundles an unmodified (or GE-patched, source-available) build of Wine.
+
+GE-Proton's own patches to Wine are published at:
+  https://github.com/GloriousEggroll/wine-ge-custom
+
+This notice is provided to satisfy LGPL 2.1 source-availability
+requirements by reference. proton-pack is not the copyright holder of
+Wine and makes no claims over it beyond what is described here.

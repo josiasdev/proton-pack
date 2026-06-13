@@ -1,0 +1,43 @@
+Proton / GE-Proton / VKD3D-Proton / DXVK — License Notice
+==========================================================
+
+GE-Proton (bundled via --bundle-proton) is a fork of Valve's Proton and
+includes several open source components, each under its own license:
+
+Proton (Valve)
+  License: BSD-style, with per-component licenses for bundled tools
+  Source:  https://github.com/ValveSoftware/Proton
+
+GE-Proton (GloriousEggroll's fork/patches)
+  License: MIT, with the above inherited
+  Source:  https://github.com/GloriousEggroll/proton-ge-custom
+
+VKD3D-Proton
+  License: LGPL 2.1
+  Source:  https://github.com/HansKristian-Work/vkd3d-proton
+
+DXVK
+  License: Zlib
+  Source:  https://github.com/doitsujin/dxvk
+
+Full LGPL 2.1 license text:
+  https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
+
+Full Zlib license text:
+  https://opensource.org/license/zlib
+
+---
+
+proton-pack does not modify any of these binaries. The version bundled
+into this AppImage (when --bundle-proton is used) is an unmodified copy
+of a GE-Proton release that the end user had already downloaded and
+installed on their own system.
+
+This notice is provided to satisfy LGPL 2.1 source-availability
+requirements by reference. proton-pack is not the copyright holder of
+Proton, GE-Proton, VKD3D-Proton, or DXVK, and makes no claims over them
+beyond what is described here.
+
+This bundling does not imply endorsement by Valve Corporation or
+GloriousEggroll. "Steam" and "Proton" are trademarks of Valve
+Corporation.

@@ -1,0 +1,66 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  shellcheck:
+    name: ShellCheck
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run ShellCheck
+        uses: ludeeus/action-shellcheck@master
+        with:
+          scandir: '.'
+          additional_files: 'proton-pack.sh lib/*.sh'
+
+  syntax-check:
+    name: Bash syntax check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check script syntax
+        run: |
+          set -e
+          for f in proton-pack.sh lib/*.sh; do
+            echo "Checking $f"
+            bash -n "$f"
+          done
+
+      - name: Check executables are executable
+        run: |
+          set -e
+          for f in proton-pack.sh; do
+            if [[ ! -x "$f" ]]; then
+              echo "::error file=$f::File is not executable. Run: chmod +x $f"
+              exit 1
+            fi
+          done
+
+  help-smoke-test:
+    name: --help smoke test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run --help
+        run: |
+          chmod +x proton-pack.sh
+          ./proton-pack.sh --help
+
+      - name: Run with no arguments (should fail with usage)
+        run: |
+          set +e
+          ./proton-pack.sh
+          code=$?
+          set -e
+          if [[ "$code" -eq 0 ]]; then
+            echo "::error::Script should exit non-zero when called with no arguments"
+            exit 1
+          fi

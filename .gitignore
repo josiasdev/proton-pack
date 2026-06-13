@@ -1,0 +1,13 @@
+# Output AppImages
+*.AppImage
+AppImages/
+
+# Temporary work directories
+*.AppDir/
+/tmp/proton-pack-*
+
+# Editor / OS files
+.vscode/
+.idea/
+*.swp
+.DS_Store
